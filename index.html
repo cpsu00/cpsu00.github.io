@@ -16,7 +16,7 @@
     --crimson:#A4243B;
     --mist:#C7D3DC;
     --gray:#6E7680;
-    --maxw:720px;
+    --maxw:740px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -24,7 +24,7 @@
     background:var(--paper);
     color:var(--ink);
     font-family:'IBM Plex Serif',Georgia,serif;
-    font-size:17px;
+    font-size:16px;
     line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
@@ -32,15 +32,15 @@
   a:hover{color:var(--crimson);border-bottom-color:var(--crimson)}
   a:focus-visible{outline:2px solid var(--crimson);outline-offset:2px;border-bottom-color:transparent}
 
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:24px;padding-right:24px}
 
   /* ---------- header / hero ---------- */
-  header{padding:72px 0 0}
+  header{padding:80px 0 0}
   .hero{animation:rise .7s ease both}
   @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
   @media (prefers-reduced-motion:reduce){.hero{animation:none}}
 
-  .hero-top{display:flex;align-items:flex-start;gap:32px;flex-wrap:wrap}
+  .hero-top{display:flex;align-items:center;gap:40px;flex-wrap:wrap}
   .hero-text{flex:1;min-width:280px}
   h1{
     font-family:'IBM Plex Serif',serif;
@@ -49,6 +49,7 @@
     letter-spacing:-.01em;
     color:var(--ink);
     line-height:1.15;
+    
   }
   .role{
     font-family:'IBM Plex Sans',sans-serif;
@@ -60,7 +61,7 @@
     margin-top:10px;
   }
   .portrait{
-    width:132px;height:132px;border-radius:50%;
+    width:140px;height:140px;border-radius:50%;
     object-fit:cover;flex-shrink:0;
     border:1px solid var(--mist);
     background:linear-gradient(135deg,#E9EEF2,#F5F2EC);
@@ -73,7 +74,7 @@
     letter-spacing:.04em;
   }
   .flow .arrow{margin:0 .55em;color:var(--crimson)}
-  .intro{margin-top:22px;max-width:60ch}
+  .intro{margin-top:22px}
   .intro b{font-weight:600}
   .links{
     margin-top:20px;
@@ -84,7 +85,7 @@
   .links a{border-bottom:1px solid var(--mist)}
 
   /* ---------- sections ---------- */
-  section{padding-top:56px}
+  section{padding-top:40px}
   h2{
     font-family:'IBM Plex Sans',sans-serif;
     font-size:.82rem;
@@ -125,36 +126,28 @@
   }
   .venue.wip{color:var(--gray);font-weight:400}
   .pub .meta a{border-bottom:1px solid var(--mist);color:var(--slate)}
-  .pub .note{font-size:.9rem;color:var(--gray);font-style:italic;margin-top:5px;max-width:64ch}
+  .pub .note{font-size:.9rem;color:var(--gray);font-style:italic;margin-top:5px}
 
   /* experience */
   .exp{margin-bottom:26px}
   .exp-head{display:flex;gap:14px;align-items:center;margin-bottom:2px}
-  .exp .logo{
-    width:44px;height:44px;object-fit:contain;flex-shrink:0;
-    border-radius:6px;
-  }
+  .exp-row{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+  .exp-body{flex:1;min-width:240px}
   .exp h3{font-family:'IBM Plex Serif',serif;font-size:1.02rem;font-weight:600}
   .exp .org{color:var(--slate)}
   .exp .meta{
     font-family:'IBM Plex Mono',monospace;
     font-size:.76rem;color:var(--gray);margin-top:2px;
   }
-  .exp p{font-size:.95rem;margin-top:6px;max-width:64ch}
-  .figs{display:flex;gap:14px;margin-top:12px;flex-wrap:wrap}
-  .figs figure{flex:1;min-width:180px;max-width:260px}
-  .figs img{
-    width:100%;aspect-ratio:4/3;object-fit:cover;
+  .exp p{font-size:.95rem;margin-top:6px}
+  .exp-video{
+    width:140px;aspect-ratio:4/3;object-fit:cover;flex-shrink:0;
     border-radius:6px;border:1px solid var(--mist);
-  }
-  .figs figcaption{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:.7rem;color:var(--gray);margin-top:5px;text-align:center;
   }
 
   /* footer */
   footer{
-    margin-top:80px;padding:34px 0 56px;
+    margin-top:120px;padding:10px 0 80px;
     border-top:1px solid var(--mist);
     font-family:'IBM Plex Sans',sans-serif;
     font-size:.82rem;color:var(--gray);
@@ -163,42 +156,35 @@
 
   @media (max-width:560px){
     h1{font-size:1.85rem}
-    header{padding-top:48px}
+    header{padding-top:72px}
     .portrait{width:104px;height:104px}
     .news li{flex-direction:column;gap:2px;margin-bottom:16px}
   }
 </style>
 </head>
 <body>
-
 <header class="wrap">
   <div class="hero">
     <div class="hero-top">
+      <img class="portrait" src="assets/portrait.jpg" alt="Portrait of Chi-Ping Su" onerror="this.style.display='none'">
       <div class="hero-text">
         <h1>Chi-Ping (Moses) Su</h1>
         <div class="role">AI &amp; Robotics Researcher</div>
       </div>
-      <!-- TODO: replace with your photo, e.g. <img src="assets/portrait.jpg" ...> -->
-      <img class="portrait" src="assets/portrait.jpg" alt="Portrait of Chi-Ping Su" onerror="this.style.visibility='hidden'">
     </div>
 
-    <div class="flow" aria-label="Research thesis">
-      4D Understanding <span class="arrow">&rarr;</span> Robot Action <span class="arrow">&rarr;</span> Human-Aware Physical AI
-    </div>
-
-    <p class="intro">
-      My research spans <b>4D perception</b>, <b>knowledge distillation</b>, and
-      <b>vision-language-action models</b>, with the goal of building Physical AI
-      that can safely operate alongside humans. I studied at National Yang Ming Chiao
-      Tung University (NYCU) in Hsinchu, Taiwan, and work closely with industry on
-      real-world robot deployment.
+    <p class="intro" style="text-align: justify;">
+      My research centers on efficient and scalable learning for computer vision and embodied AI, 
+      spanning <i>4D perception</i>, <i>knowledge distillation</i>, and <i>vision-language-action models</i>.
+      I received my master's degree from
+      National Yang Ming Chiao Tung University (NYCU) in Hsinchu, Taiwan, and work
+      closely with semiconductor industry on real-world robot deployment. Always happy to chat about robots, 4D, or anything else! Feel free to reach out!
     </p>
 
     <nav class="links" aria-label="Profiles">
       <a href="mailto:cpsu.04@gmail.com">Email</a>
-      <a href="#">Google Scholar</a><!-- TODO: paste Scholar URL -->
+      <a href="https://scholar.google.com/citations?user=4h2GR9EAAAAJ">Google Scholar</a>
       <a href="https://github.com/cpsu00">GitHub</a>
-      <a href="assets/ChiPing_Su_CV.pdf">CV</a><!-- TODO: drop CV pdf into assets/ -->
     </nav>
   </div>
 </header>
@@ -208,11 +194,11 @@
   <section id="news" aria-label="News">
     <h2>News</h2>
     <ul class="news">
-      <li><time>2026·05</time><span>Our paper on complementary knowledge transfer via localized preference deltas was accepted to the <a href="#">AI for Math workshop @ ICML 2026</a>.</span></li>
-      <li><time>2026·01</time><span>Joined the MediaTek × NYCU joint research project on scalable precision embodied AI.</span></li>
-      <li><time>2026·01</time><span>Started as an Embodied AI intern at MIRLE Automation, building VLA applications for semiconductor robots.</span></li>
-      <li><time>2025·07</time><span><em>EA-KD</em> was accepted to <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Su_EA-KD_Entropy-based_Adaptive_Knowledge_Distillation_ICCV_2025_paper.html">ICCV 2025</a>.</span></li>
-      <li><time>2025·03</time><span>Invited Scientist at the Technical University of Munich, working with Prof. Zeynep Akata.</span></li>
+      <li><time>2026·05</time><span>Our paper on complementary knowledge transfer via localized preference deltas was accepted to the <a href="https://openreview.net/forum?id=7n2S7Tnh4J">AI for Math workshop @ ICML 2026</a>!</span></li>
+      <li><time>2026·04</time><span>Joined the MediaTek × NYCU joint research project on scalable precision embodied AI, working with Prof. Yuan-Fu Yang.</span></li>
+      <li><time>2026·04</time><span>Started an internship at MIRLE Automation, building VLA applications for semiconductor robots.</span></li>
+      <li><time>2025·10</time><span>Presented my master's thesis, <em>EA-KD</em>, at <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Su_EA-KD_Entropy-based_Adaptive_Knowledge_Distillation_ICCV_2025_paper.html">ICCV 2025</a> in Honolulu!</span></li>
+      <li><time>2025·08</time><span>Started as an Invited Scientist at the Technical University of Munich, working with Prof. Zeynep Akata.</span></li>
     </ul>
   </section>
 
@@ -220,7 +206,7 @@
     <h2>Publications</h2>
 
     <div class="pub">
-      <h3>Robo4D: Robot Demonstrations as Scalable 4D Supervision for VLMs and VLAs</h3><!-- TODO: real title -->
+      <h3>Robo4D: Robot Demonstrations are Free Scalable 4D Supervision for VLMs and VLAs</h3><!-- TODO: real title -->
       <div class="authors"><span class="me">Chi-Ping Su</span>, et al.</div><!-- TODO: author list -->
       <div class="meta"><span class="venue wip">In preparation, 2026</span></div>
       <p class="note">Turns robot demonstrations into annotation-free 4D VQA supervision, improving VLMs (+13.3% on VLM4D) and VLAs (+3.8% on LIBERO-Long).</p>
@@ -236,7 +222,7 @@
     <div class="pub">
       <h3>Learning from One Another: Toward Complementary Knowledge Transfer via Localized Preference Deltas</h3>
       <div class="authors"><span class="me">Chi-Ping Su</span>, Jing-Hong Hu, Ching-Hsun Tseng, Shin-Jye Lee</div>
-      <div class="meta"><span class="venue">AI for Math @ ICML 2026</span><a href="#">paper</a></div>
+      <div class="meta"><span class="venue">AI for Math @ ICML 2026</span><a href="https://openreview.net/forum?id=7n2S7Tnh4J">paper</a></div>
       <p class="note">Enables complementary knowledge transfer among LLMs of different scales through localized preference differences.</p>
     </div>
 
@@ -267,7 +253,6 @@
 
     <div class="exp">
       <div class="exp-head">
-        <img class="logo" src="assets/logo-mediatek-nycu.png" alt="MediaTek × NYCU" onerror="this.style.display='none'">
         <div>
           <h3>Researcher &middot; <span class="org">MediaTek &times; NYCU Joint Research Project</span></h3>
           <div class="meta">2026 – present &middot; PI: Prof. Yuan-Fu Yang</div>
@@ -276,30 +261,21 @@
       <p>Toward scalable precision embodied AI: from spatial perception to spatio-temporal vision-language-action for edge intelligence. Built <em>Robo4D</em> and <em>Action-Effect Alignment</em>.</p>
     </div>
 
-    <div class="exp">
-      <div class="exp-head">
-        <img class="logo" src="assets/logo-mirle.png" alt="MIRLE Automation" onerror="this.style.display='none'">
-        <div>
-          <h3>Embodied AI Intern &middot; <span class="org">MIRLE Automation</span></h3>
-          <div class="meta">2026 – present &middot; Hsinchu, Taiwan</div>
+    <div class="exp exp-row">
+      <div class="exp-body">
+        <div class="exp-head">
+          <div>
+            <h3>Embodied AI Intern &middot; <span class="org">MIRLE Automation</span></h3>
+            <div class="meta">2026 – present &middot; Hsinchu, Taiwan</div>
+          </div>
         </div>
+        <p>Proof-of-concept VLA applications for semiconductor AMHS; end-to-end pipeline for MIRLE's CoBot and Marvin Pro, from teleoperation and VLA training to real-world deployment.</p>
       </div>
-      <p>Proof-of-concept VLA applications for semiconductor AMHS; end-to-end pipeline for MIRLE's CoBot and Marvin Pro, from teleoperation and VLA training to real-world deployment.</p>
-      <div class="figs">
-        <figure>
-          <img src="assets/mirle-marvin.jpg" alt="Marvin Pro unpacking a FOUP" onerror="this.parentElement.style.display='none'">
-          <figcaption>Marvin Pro &middot; VLA unpacking a FOUP</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/mirle-cobot.jpg" alt="CoBot in Isaac Lab simulation" onerror="this.parentElement.style.display='none'">
-          <figcaption>CoBot in Isaac Lab</figcaption>
-        </figure>
-      </div>
+      <video class="exp-video" src="assets/mirle-demo.mp4" autoplay loop muted playsinline aria-label="MIRLE robot demonstration"></video>
     </div>
 
     <div class="exp">
       <div class="exp-head">
-        <img class="logo" src="assets/logo-tum.png" alt="TUM" onerror="this.style.display='none'">
         <div>
           <h3>Invited Scientist &middot; <span class="org">Technical University of Munich</span></h3>
           <div class="meta">2025 – 2026</div>
@@ -309,13 +285,13 @@
     </div>
   </section>
 
-  <section id="education" aria-label="Education">
+  <section id="education" aria-label="Education" style="margin-bottom: 80px">
     <h2>Education</h2>
 
     <div class="exp">
       <h3>M.B.A. in Technology Management &middot; <span class="org">National Yang Ming Chiao Tung University</span></h3>
       <div class="meta">2022 – 2025 &middot; GPA 4.25 / 4.30 &middot; Focus: AI &amp; Computer Vision</div>
-      <p>Thesis: <em>Entropy-Based Adaptive Knowledge Distillation</em> (ICCV 2025).</p>
+      <p>Thesis: <em>Entropy-Based Adaptive Knowledge Distillation</em> (ICCV 2025)</p>
     </div>
 
     <div class="exp">
