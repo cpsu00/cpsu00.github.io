@@ -16,7 +16,7 @@
     --crimson:#A4243B;
     --mist:#C7D3DC;
     --gray:#6E7680;
-    --maxw:740px;
+    --maxw:800px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -141,7 +141,11 @@
   }
   .exp p{font-size:.95rem;margin-top:6px}
   .exp-video{
-    width:140px;aspect-ratio:4/3;object-fit:cover;flex-shrink:0;
+    width:185px;aspect-ratio:4/3;object-fit:cover;flex-shrink:0;
+    border-radius:6px;border:1px solid var(--mist);
+  }
+  .exp-portrait-video{
+    height:180px;aspect-ratio:3/4;object-fit:cover;flex-shrink:0;
     border-radius:6px;border:1px solid var(--mist);
   }
 
@@ -195,8 +199,9 @@
   <section id="news" aria-label="News">
     <h2>News</h2>
     <ul class="news">
+      <li><time>2026·09</time><span>Wrapped up my internship at MIRLE Automation.</span></li>
       <li><time>2026·05</time><span>Our paper on complementary knowledge transfer via localized preference deltas was accepted to the <a href="https://openreview.net/forum?id=7n2S7Tnh4J">AI for Math workshop @ ICML 2026</a>!</span></li>
-      <li><time>2026·04</time><span>Joined the MediaTek × NYCU joint research project on scalable precision embodied AI, working with Prof. Yuan-Fu Yang.</span></li>
+      <li><time>2026·04</time><span>Joined the MediaTek MARC × NYCU research project on embodied AI, working with Prof. Yuan-Fu Yang.</span></li>
       <li><time>2026·04</time><span>Started an internship at MIRLE Automation, building VLA applications for semiconductor robots.</span></li>
       <li><time>2025·10</time><span>Presented my master's thesis, <em>EA-KD</em>, at <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Su_EA-KD_Entropy-based_Adaptive_Knowledge_Distillation_ICCV_2025_paper.html">ICCV 2025</a> in Honolulu!</span></li>
       <li><time>2025·08</time><span>Started as an Invited Scientist at the Technical University of Munich, working with Prof. Zeynep Akata.</span></li>
@@ -204,7 +209,8 @@
   </section>
 
   <section id="publications" aria-label="Publications">
-    <h2>Publications</h2>
+    <h2>Selected Publications</h2>
+
 
     <div class="pub">
       <h3>EA-KD: Entropy-Based Adaptive Knowledge Distillation</h3>
@@ -218,20 +224,6 @@
       <div class="authors"><span class="me">Chi-Ping Su</span>, Jing-Hong Hu, Ching-Hsun Tseng, Shin-Jye Lee</div>
       <div class="meta"><span class="venue">AI for Math @ ICML 2026</span><a href="https://openreview.net/forum?id=7n2S7Tnh4J">paper</a></div>
       <p class="note">Enables complementary knowledge transfer among LLMs of different scales through localized preference differences.</p>
-    </div>
-
-    <div class="pub">
-      <h3>Robo4D: Robot Demonstrations are Free 4D Supervision for VLMs and VLAs</h3><!-- TODO: real title -->
-      <div class="authors"><span class="me">Chi-Ping Su</span>, et al.</div><!-- TODO: author list -->
-      <div class="meta"><span class="venue wip">In preparation, 2026</span></div>
-      <p class="note">Turns robot demonstrations into annotation-free 4D VQA supervision, improving VLMs (+13.3% on VLM4D) and VLAs (+3.8% on LIBERO-Long).</p>
-    </div>
-
-    <div class="pub">
-      <h3>Action-Effect Alignment: Distilling Action-Conditioned Dynamics into Robot Policies</h3><!-- TODO: real title -->
-      <div class="authors"><span class="me">Chi-Ping Su</span>, et al.</div><!-- TODO: author list -->
-      <div class="meta"><span class="venue wip">In preparation, 2026</span></div>
-      <p class="note">A contrastive objective that self-distills action-conditioned scene dynamics into VLA policies with zero inference overhead (+5.2% on LIBERO-Long).</p>
     </div>
 
     <div class="pub">
@@ -255,25 +247,42 @@
     <div class="exp">
       <div class="exp-head">
         <div>
-          <h3>Researcher &middot; <span class="org">MediaTek &times; NYCU Joint Research Project</span></h3>
+          <h3>Research Assistant &middot; <span class="org">MediaTek Advanced Research Center (MARC) &times; NYCU</span></h3>
           <div class="meta">2026 – present &middot; PI: Prof. Yuan-Fu Yang</div>
         </div>
       </div>
-      <p>Developing 4D-aware embodied AI: from spatial perception to spatio-temporal vision-language-action for edge intelligence. Built <em>Robo4D</em> and <em>Action-Effect Alignment</em>.</p>
+      <p>Project: <em>Toward Scalable Precision Embodied AI: From Spatial Perception to Spatiotemporal VLA for Edge Intelligence</em>.
+      I work on two fronts: improving the spatiotemporal understanding of VLMs and VLAs, which led to <em>Robo4D</em> (see Publications),
+      and running VLA inference on MediaTek's on-device NPU, an ongoing effort toward deploying robot policies at the edge.</p>
     </div>
 
-    <div class="exp exp-row">
+    <div class="exp exp-row" id="openarm">
+      <div class="exp-body">
+        <div class="exp-head">
+          <div>
+            <h3>Research Assistant &middot; <span class="org">NSTC Research Project</span></h3>
+            <div class="meta">2026 – present &middot; NSTC 114-2218-E-A49-026, 115-2218-E-A49-010 &middot; PI: Prof. Yuan-Fu Yang &middot; Co-PI: Prof. Chun-Yi Lee</div>
+          </div>
+        </div>
+        <p>Project: <em>Generative AI for Cross-Domain Robot Applications</em>. Built an end-to-end VLA system on the OpenArm v2 bimanual robot for automated sorting,
+        reaching 83% success on standard sorting and 65% on unseen objects in real-world trials.</p>
+      </div>
+        <video class="exp-portrait-video" src="assets/openarm.mp4" autoplay loop muted playsinline aria-label="OpenArm v2 bimanual robot sorting objects into a bin"></video>
+    </div>
+
+    <div class="exp exp-row" id="mirle">
       <div class="exp-body">
         <div class="exp-head">
           <div>
             <h3>Embodied AI Intern &middot; <span class="org">MIRLE Automation</span></h3>
-            <div class="meta">2026 – present &middot; Hsinchu, Taiwan</div>
+            <div class="meta">Apr. – Sep. 2026 &middot; Hsinchu, Taiwan</div>
           </div>
         </div>
-        <p>Developing proof-of-concept VLAs applications in semiconductor AMHS; built end-to-end pipelines
+        <p>Developed proof-of-concept VLA applications for semiconductor AMHS (FOUP transport, wafer cassette loading); built end-to-end pipelines
         spanning teleoperation, model fine-tuning, and deployment from simulation to real-world environments.</p>
       </div>
       <video class="exp-video" src="assets/mirle-demo.mp4" autoplay loop muted playsinline aria-label="MIRLE robot demonstration"></video>
+      <img class="exp-portrait-video" src="assets/mirle-demo2.png" alt="MIRLE robot demonstration">
     </div>
 
     <div class="exp">
